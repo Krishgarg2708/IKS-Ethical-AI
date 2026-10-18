@@ -1,0 +1,7 @@
+{
+  "name": "IKS & Ethical AI — Ancient Wisdom, Responsible Intelligence",
+  "description": "An interactive educational platform exploring how Indian Knowledge Systems inform responsible AI development and student performance evaluation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

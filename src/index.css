@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-ivory: #F7F3EA;
+    --heritage-green: #243B32;
+    --sandstone: #E8DDCA;
+    --terracotta: #A6533C;
+    --antique-gold: #B49A61;
+    --charcoal: #282923;
+    --slate-grey: #66675F;
+    --soft-white: #FFFDF8;
+    --warm-beige: #DDD3C2;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #F7F3EA;
+    color: #282923;
+  }
+
+  h1, h2, h3, .font-serif-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-editorial {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-sans-clean {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+/* Subtle parchment / manuscript texture overlay */
+.manuscript-pattern {
+  background-image: radial-gradient(#B49A61 0.75px, transparent 0.75px);
+  background-size: 24px 24px;
+  opacity: 0.12;
+}
+
+/* Subtle architectural lattice line pattern */
+.lattice-pattern {
+  background-image: 
+    linear-gradient(45deg, #DDD3C2 25%, transparent 25%), 
+    linear-gradient(-45deg, #DDD3C2 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, #DDD3C2 75%), 
+    linear-gradient(-45deg, transparent 75%, #DDD3C2 75%);
+  background-size: 32px 32px;
+  background-position: 0 0, 0 16px, 16px -16px, -16px 0px;
+  opacity: 0.15;
+}
+
