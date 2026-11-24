@@ -1,0 +1,7 @@
+{
+  "name": "Gram to Graph — Fair AI for Rural Learners",
+  "description": "An IKS-grounded platform showing how AI student evaluation penalises rural and digitally constrained students, and how Dharma, Ahimsa, Nyaya and Samata can correct it.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

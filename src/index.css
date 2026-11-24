@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-ivory: #F7F3EA;
+    --heritage-green: #243B32;
+    --sandstone: #E8DDCA;
+    --terracotta: #A6533C;
+    --antique-gold: #B49A61;
+    --charcoal: #282923;
+    --slate-grey: #66675F;
+    --soft-white: #FFFDF8;
+    --warm-beige: #DDD3C2;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #F7F3EA;
+    color: #282923;
+  }
+
+  h1, h2, h3, .font-serif-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-editorial {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-sans-clean {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+/* Subtle parchment / manuscript texture overlay */
+.manuscript-pattern {
+  background-image: radial-gradient(#B49A61 0.75px, transparent 0.75px);
+  background-size: 24px 24px;
+  opacity: 0.12;
+}
+
+/* Subtle architectural lattice line pattern */
+.lattice-pattern {
+  background-image: 
+    linear-gradient(45deg, #DDD3C2 25%, transparent 25%), 
+    linear-gradient(-45deg, #DDD3C2 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, #DDD3C2 75%), 
+    linear-gradient(-45deg, transparent 75%, #DDD3C2 75%);
+  background-size: 32px 32px;
+  background-position: 0 0, 0 16px, 16px -16px, -16px 0px;
+  opacity: 0.15;
+}
+
+
+/* ---------- Background animations (subtle, heritage palette) ---------- */
+@keyframes bg-breathe { 0%,100% { opacity: .25; transform: scale(1); } 50% { opacity: .6; transform: scale(1.35); } }
+@keyframes bg-link-fade { 0%,100% { stroke-opacity: .12; } 50% { stroke-opacity: .45; } }
+@keyframes bg-packet-move {
+  0% { transform: translate(var(--x1), var(--y1)); opacity: 0; }
+  10% { opacity: .7; } 90% { opacity: .7; }
+  100% { transform: translate(var(--x2), var(--y2)); opacity: 0; }
+}
+@keyframes bg-wave-drift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes bg-diya-rise {
+  0% { transform: translateY(0); opacity: 0; }
+  15% { opacity: .5; } 85% { opacity: .35; }
+  100% { transform: translateY(-105vh); opacity: 0; }
+}
+@keyframes bg-graph-drift { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-1.2%, 1%); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.bg-graph { animation: bg-graph-drift 40s ease-in-out infinite; }
+.bg-link { animation: bg-link-fade 9s ease-in-out infinite; }
+.bg-node { transform-origin: center; animation: bg-breathe 7s ease-in-out infinite; margin: -3px 0 0 -3px; }
+.bg-packet { left: 0; top: 0; width: 4px; height: 4px; background: #A6533C; animation: bg-packet-move 8s linear infinite; }
+.bg-waves { animation: bg-wave-drift 50s linear infinite; }
+.bg-diya {
+  bottom: -20px; width: 6px; height: 8px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: #B49A61; animation: bg-diya-rise 22s ease-in infinite;
+}
+.bg-spin { animation: spin 180s linear infinite; }
+.bg-spin-rev { animation: spin 240s linear infinite reverse; }
+.bg-anim { opacity: .9; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-anim *, .bg-anim { animation: none !important; }
+  .bg-packet, .bg-diya { display: none; }
+}
+
+/* ---------- Logo animation ---------- */
+.logo-anim .lg-ring { stroke-dasharray: 360; stroke-dashoffset: 360; animation: lg-draw 1s cubic-bezier(.6,0,.3,1) forwards; }
+.logo-anim .lg-ring2 { transform-origin: 60px 60px; animation: lg-spin 12s linear infinite; }
+.logo-anim .lg-petals { transform-origin: 60px 60px; opacity: 0; animation: lg-petals 1s .3s ease-out forwards; }
+.logo-anim .lg-disc { transform-origin: 60px 60px; transform: scale(0); animation: lg-pop .55s .35s cubic-bezier(.3,1.5,.5,1) forwards; }
+.logo-anim .lg-draw { stroke-dasharray: 80; stroke-dashoffset: 80; animation: lg-draw .5s .75s ease-out forwards; }
+.logo-anim .lg-d2 { animation-delay: 1.0s; }
+.logo-anim .lg-d3 { animation-delay: 1.15s; }
+.logo-anim .lg-d4 { animation-delay: 1.35s; }
+.logo-anim .lg-door { opacity: 0; animation: lg-fade .3s 1s forwards; }
+.logo-anim .lg-node { transform-box: fill-box; transform-origin: center; transform: scale(0); animation: lg-pop .4s cubic-bezier(.3,1.6,.5,1) forwards; }
+.logo-anim .lg-n1 { animation-delay: 1.3s; } .logo-anim .lg-n2 { animation-delay: 1.45s; } .logo-anim .lg-n3 { animation-delay: 1.65s; }
+.logo-anim .lg-flame { transform-box: fill-box; transform-origin: 50% 100%; opacity: 0; animation: lg-fade .4s 1.9s forwards, lg-flicker 1.6s 2.3s ease-in-out infinite; }
+@keyframes lg-draw { to { stroke-dashoffset: 0; } }
+@keyframes lg-pop { to { transform: scale(1); } }
+@keyframes lg-fade { to { opacity: 1; } }
+@keyframes lg-petals { from { opacity: 0; transform: rotate(-45deg) scale(.8); } to { opacity: .35; transform: rotate(0) scale(1); } }
+@keyframes lg-spin { to { transform: rotate(360deg); } }
+@keyframes lg-flicker { 0%,100% { transform: scale(1, 1); } 30% { transform: scale(.92, 1.08); } 60% { transform: scale(1.05, .95); } }
+
+/* Small navbar logo: gentle hover */
+.nav-logo svg { transition: transform .5s ease; }
+.nav-logo:hover svg { transform: rotate(-12deg) scale(1.06); }
+
+/* ---------- Loading screen ---------- */
+.loader { transition: opacity .7s ease, transform .7s ease, filter .7s ease; }
+.loader-out { opacity: 0; transform: scale(1.04); filter: blur(4px); pointer-events: none; }
+.loader-logo-wrap { animation: loader-float 3s 2s ease-in-out infinite; }
+@keyframes loader-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.loader-letter { display: inline-block; opacity: 0; transform: translateY(18px); animation: loader-up .5s cubic-bezier(.2,.8,.2,1) forwards; }
+@keyframes loader-up { to { opacity: 1; transform: translateY(0); } }
+.loader-fade { opacity: 0; animation: lg-fade .6s ease forwards; }
+.loader-word { animation: loader-word .65s ease; }
+@keyframes loader-word { 0% { opacity: 0; transform: translateY(100%); } 25%,75% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-100%); } }
+.loader-bar { width: 100%; transform-origin: left; transform: scaleX(0); animation: loader-bar 3s .4s cubic-bezier(.65,0,.35,1) forwards; }
+.loader-dot-track { transform: translateX(0); animation: loader-dot 3s .4s cubic-bezier(.65,0,.35,1) forwards; }
+.loader-bar-dot { left: 0; transform: translate(-50%, -50%); }
+@keyframes loader-bar { to { transform: scaleX(1); } }
+@keyframes loader-dot { to { transform: translateX(100%); } }
+.loader-ripple {
+  position: absolute; left: 50%; top: 42%; width: 220px; height: 220px; margin: -110px 0 0 -110px;
+  border: 1px solid #B49A61; border-radius: 50%; opacity: 0; animation: loader-ripple 2.7s ease-out infinite;
+}
+@keyframes loader-ripple { 0% { transform: scale(.6); opacity: .45; } 100% { transform: scale(3.2); opacity: 0; } }
+.loader-field { stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: lg-draw 1.6s ease-out forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-anim *, .loader * { animation-duration: .01s !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; }
+  .loader-ripple { display: none; }
+}
+
+/* ---------- Scroll reveal & page transitions ---------- */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1); }
+.reveal.reveal-in { opacity: 1; transform: none; }
+.page-enter { animation: page-enter .55s cubic-bezier(.2,.8,.2,1); }
+@keyframes page-enter { from { opacity: 0; transform: translateY(14px); filter: blur(3px); } to { opacity: 1; transform: none; filter: none; } }
+
+/* Card hover lift (cards across the site) */
+main .rounded-lg.border { transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease; }
+main button.rounded-lg.border:hover, main .bg-\[\#FFFDF8\].rounded-lg.border:hover { transform: translateY(-3px); box-shadow: 0 10px 24px -14px rgba(36,59,50,.35); }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .page-enter { animation: none; }
+  html { scroll-behavior: auto; }
+}
