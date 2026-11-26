@@ -1,5 +1,7 @@
 # Gram to Graph — Fair AI for Rural Learners (IKS & Ethical AI)
 
+> **New: SwaLekhan AI (स्वलेखन)** — ethical authorship, AI-contribution & learning-reflection system (`#swalekhan`). Works without any API key. See **[SWALEKHAN.md](SWALEKHAN.md)** for setup (`npm install && npm run dev:all`).
+
 > **Niche:** the rural digital divide in AI-based student evaluation. New modules: **Fairness Lab** (`#rural`, 4 profiles + 120-student cohort audit) and **Access Audit** (`#audit`, personal Digital Access Index tool).
 
 An interactive, university-level educational platform that demonstrates how **Indian Knowledge Systems (IKS)** inform modern ethical AI governance and machine learning decision-making.
@@ -135,3 +137,11 @@ npm run build
 4. **IEEE Global Initiative (2019):** *Ethically Aligned Design: A Vision for Prioritizing Human Well-being with Autonomous and Intelligent Systems.* First Edition.
 5. **Classical Treatises:** *Taittiriya Upanishad (Panchakosha Viveka)* and *Nyaya Sutras of Aksapada Gautama (Pramana-vada).*
 6. **ACM FAccT (2022):** *Algorithmic Injustice in Higher Education: Predictive Analytics and the Reinforcement of Historical Disadvantage.*
+
+## Running & deploying
+
+- **Local (full server):** `npm install` then `npm run dev` — starts the website (port 3000) and the SwaLekhan API (port 8787) together. Needs Node 22.5+.
+- **Vercel (no server, no API key):** deploy as-is. SwaLekhan detects that no API is present and switches to *browser mode*: accounts, submissions and reports are saved in the visitor's browser (localStorage). Teacher invite code in browser mode: `TEACHER2026` (change with `VITE_TEACHER_INVITE_CODE`). Data is per-browser — teachers only see submissions made in the same browser.
+- **AI Checker** (`#aicheck`) is always frontend-only.
+#   I K S - E t h i c a l - A I  
+ 
