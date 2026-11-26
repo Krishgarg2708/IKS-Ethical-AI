@@ -8,7 +8,9 @@ export type PageTab =
   | 'safeguards' 
   | 'simulator' 
   | 'assessment' 
-  | 'about';
+  | 'about'
+  | 'swalekhan'
+  | 'aicheck';
 
 export interface StudentIndicators {
   attendance: number; // percentage 0-100

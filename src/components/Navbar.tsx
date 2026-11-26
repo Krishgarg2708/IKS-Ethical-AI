@@ -21,6 +21,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
     { tab: 'safeguards', label: 'Safeguards' },
     { tab: 'simulator', label: 'Simulator' },
     { tab: 'assessment', label: 'Quiz' },
+    { tab: 'swalekhan', label: 'SwaLekhan AI' },
+    { tab: 'aicheck', label: 'AI Checker' },
     { tab: 'about', label: 'About' },
   ];
 
@@ -31,7 +33,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#F7F3EA]/95 backdrop-blur-sm border-b border-[#DDD3C2]">
+    <header className="print:hidden sticky top-0 z-40 w-full bg-[#F7F3EA]/95 backdrop-blur-sm border-b border-[#DDD3C2]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-8 h-16">
           {/* Zone 1: Single text wordmark */}
@@ -56,7 +58,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
                       : 'text-[#66675F] hover:text-[#243B32]'
                   }`}
                 >
-                  {link.label}
+                  {link.tab === 'swalekhan' ? <span className="text-[#A6533C]">{link.label}</span> : link.label}
                   {isActive && (
                     <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#A6533C]" />
                   )}

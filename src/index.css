@@ -158,3 +158,12 @@ html { scroll-behavior: smooth; }
   .page-enter { animation: none; }
   html { scroll-behavior: auto; }
 }
+
+/* ---------- SwaLekhan AI: print-ready report ---------- */
+@media print {
+  @page { size: A4; margin: 14mm; }
+  body { background: #fff !important; }
+  .swl-report .rounded-xl, .swl-report .rounded-lg { break-inside: avoid; box-shadow: none !important; }
+  .swl-report * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page-enter { animation: none !important; }
+}

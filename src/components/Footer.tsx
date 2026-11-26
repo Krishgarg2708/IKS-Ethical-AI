@@ -40,6 +40,9 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
+                <button onClick={() => handleNav('swalekhan')} className="hover:text-[#FFFDF8] transition-colors cursor-pointer">SwaLekhan AI (स्वलेखन)</button>
+              </li>
+              <li>
                 <button onClick={() => handleNav('rural')} className="hover:text-[#FFFDF8] transition-colors cursor-pointer">Rural Fairness Lab</button>
               </li>
               <li>
